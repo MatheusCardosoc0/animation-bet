@@ -2,26 +2,198 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.Container{
+  width: 90%;
+  position: relative;
+  max-width: 600px;
+  aspect-ratio: 300/220;
+  background-color: rgb(23, 23, 23);
+  border-radius: 20px;
+  overflow: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.PATAMARZERO{
+  position: absolute;
+  bottom: 5%;
+  height: 3px;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%) ;
+  background-color: white;
+  color: white;
+}
+
+.PATAMARONE{
+  position: absolute;
+  bottom: 5%;
+  height: 3px;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%) ;
+  background-color: white;
+  color: white;
+  animation: patamarone linear 1s forwards;
+}
+
+@keyframes patamarone{
+  100%{bottom: -10%;}
+}
+
+.PATAMAR{
+  position: absolute;
+  top: 0%;
+  height: 0.9%;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%) ;
+  background-color: white;
+  animation: patamar infinite 3s ease-in;
+  color: white;
+}
+
+@keyframes patamar{
+  100%{top:100%}
+}
+
+.ARROW{
+  position: absolute;
+  width: 8%;
+  height: 8%;
+  background-color: green;
+  bottom: 6%;
+  left: 8%;
+  border-radius: 4px;
+  animation: arrow  7s forwards;
+  animation-iteration-count: 1;
+  transform: rotate(-35deg); /* Rotaciona o elemento em -45 graus */
+  transform-origin: bottom left; 
+}
+
+.point{
+  width: 18%;
+  height: 24%;
+  border-radius: 100%;
+  position: absolute;
+  bottom: 6%;
+  left: 8%;
+  animation: point  7s forwards;
+  animation-iteration-count: 1;
+  transform: rotate(-15deg); /* Rotaciona o elemento em -45 graus */
+  transform-origin: bottom left; 
+}
+
+@keyframes point {
+  100%{left: 78%; bottom: 68%;}
+}
+
+@keyframes arrow {
+  100%{width: 96%;}
+}
+
+.Stripes{
+  background-image: linear-gradient(to bottom, rgba(57, 245, 0, 0.376), rgba(30, 255, 0, 0.456) 12.5%, transparent 12.5%, transparent 12.5%);
+  position: absolute;
+  width: 3%;
+  height: 150%;
+  bottom: 0;
+  animation: moviment infinite linear 14s ;
+
+  background-repeat: repeat;
+  background-size: 100% 8px;
+  transform-origin: bottom;
+}
+
+.Stripes-no-animated{
+  background-image: linear-gradient(to bottom, rgba(57, 245, 0, 0.376), rgba(30, 255, 0, 0.456) 12.5%, transparent 12.5%, transparent 12.5%);
+  position: absolute;
+  width: 12px;
+  height: 150%;
+  bottom: 0;
+
+  background-repeat: repeat;
+  background-size: 100% 8px;
+  transform-origin: bottom;
+}
+
+.Stripes-bottom{
+  background-image: linear-gradient(to bottom, rgba(57, 245, 0, 0.376), rgba(30, 255, 0, 0.456) 12.5%, transparent 12.5%, transparent 12.5%);
+  position: absolute;
+  width: 3%;
+  height: 150%;
+  bottom: 0;
+  animation: moviment infinite linear 14s ;
+
+  background-repeat: repeat;
+  background-size: 100% 8px;
+  transform: rotate(90deg) translateX(-50%);
+  transform-origin: bottom;
+}
+
+.Stripes-bottom-no-animated{
+  background-image: linear-gradient(to bottom, rgba(57, 245, 0, 0.376), rgba(30, 255, 0, 0.456) 12.5%, transparent 12.5%, transparent 12.5%);
+  position: absolute;
+  width: 12px;
+  height: 150%;
+  bottom: 0;
+
+  background-repeat: repeat;
+  background-size: 100% 8px;
+  transform: rotate(90deg) translateX(-50%);
+  transform-origin: bottom;
+}
+
+@keyframes moviment {
+  100%{
+    height: 300%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.MARKERI{
+  background-color: green;
+  width: 1.2%;
+  height: 8%;
+  position: absolute;
+  bottom: 0%;
+  left: 49%;
+}
+
+.MARKERI-ANIMATION{
+  animation: movimentMarker infinite linear 14s;
+}
+
+@keyframes movimentMarker {
+  51%{
+    left: 100%;
+  }
+  52%{
+    left: 0%;
+  }
+  100%{
+    left: 50%;
+  }
+}
+
+.MARKERIY{
+  background-color: green;
+  width: 8%;
+  height: 1.2%;
+  position: absolute;
+  top: 49%;
+  left: 0%;
+}
+
+.MARKERI-ANIMATIONY{
+  animation: movimentMarker2 infinite linear 14s;
+}
+
+@keyframes movimentMarker2 {
+  51%{
+    top: 100%;
+  }
+  52%{
+    top: 0%;
+  }
+  100%{
+    top: 50%;
+  }
 }
