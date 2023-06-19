@@ -57,13 +57,9 @@ export default function Home() {
     <div className="w-full h-screen gap-4 flex flex-col items-center justify-center">
       <div className="Container">
         <div className={`${isAnimation && 'PATAMAR'} text-transparent`}>
-          {isAnimation ? count : ''}
+          <span className="floor">{isAnimation ? count : ''}</span>
         </div>
-        <div
-          className={`${
-            isAnimation && 'ARROW'
-          } w-[20px] h-[20px] absolute bottom-[6%] left-[8%] bg-[rgb(0,128,0)]`}
-        />
+        <div className={`${isAnimation && 'ARROW-animation'} ARROW`} />
 
         <div className={`${isAnimation ? 'PATAMARONE' : 'PATAMARZERO'}`} />
 
@@ -85,11 +81,7 @@ export default function Home() {
           {counter + ' X'}
         </span>
 
-        <BsCoin
-          className={`${
-            isAnimation && 'point'
-          } w-[58px] h-[58px] bg-yellow-500 rounded-full absolute bottom-[6%] left-[8%]`}
-        />
+        <BsCoin className={`${isAnimation && 'point-animation'} point`} />
       </div>
 
       <button

@@ -7,9 +7,11 @@
   position: relative;
   max-width: 600px;
   aspect-ratio: 300/220;
-  background-color: rgb(23, 23, 23);
+  /* background-color: rgb(23, 23, 23); */
+  background-image: url('/fundo.png');
   border-radius: 20px;
   overflow: hidden;
+  background-size: cover;
 }
 
 .PATAMARZERO{
@@ -19,7 +21,7 @@
   width: 90%;
   left: 50%;
   transform: translateX(-50%) ;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   color: white;
 }
 
@@ -46,27 +48,53 @@
   width: 90%;
   left: 50%;
   transform: translateX(-50%) ;
-  background-color: white;
+  background-color: rgb(255, 200, 0);
+  box-shadow: 0px 2px 0px rgb(81, 81, 80);
   animation: patamar infinite 3s ease-in;
-  color: white;
+  color: rgb(41, 41, 41);
 }
 
 @keyframes patamar{
   100%{top:100%}
 }
 
+.PATAMAR span{
+  position: absolute;
+  transform: translateY(-20px) translateX(-4px);
+  font-size: 2rem;
+  background-image: linear-gradient(to top right , rgb(255, 196, 0), rgb(252, 233, 138) , yellow);
+  border-radius: 100%;
+  padding-inline: 8px;
+  padding-inline: 8px;
+  border: solid 2px rgb(253, 188, 7);
+  color: aliceblue;
+  text-shadow: 2px 2px 2px black;
+}
+
 .ARROW{
   position: absolute;
-  width: 8%;
-  height: 8%;
-  background-color: green;
+  width: 6%;
+  height: 6%;
+  background-image: linear-gradient(to left, rgb(251, 255, 0), rgb(72, 181, 5), rgba(31, 92, 2, 0.464), rgba(17, 51, 1, 0) );
   bottom: 6%;
   left: 8%;
   border-radius: 4px;
-  animation: arrow  7s forwards;
-  animation-iteration-count: 1;
   transform: rotate(-35deg); /* Rotaciona o elemento em -45 graus */
   transform-origin: bottom left; 
+}
+
+.ARROW-animation{
+  animation: arrow  7s forwards, trail 2s infinite;
+}
+
+@keyframes arrow {
+  100%{width: 96%;}
+}
+
+@keyframes trail {
+  30%{background-image: linear-gradient(to left, rgb(251, 255, 0), rgb(72, 181, 5), rgba(31, 92, 2, 0.464), rgba(17, 51, 1, 0.298) );}
+  40%{background-image: linear-gradient(to left, rgb(251, 255, 0), rgb(72, 181, 5), rgba(31, 92, 2, 0.464), rgba(17, 51, 1, 0) );}
+  100%{background-image: linear-gradient(to left, rgb(251, 255, 0), rgb(72, 181, 5), rgba(31, 92, 2, 0.464), rgba(17, 51, 1, 0) );}
 }
 
 .point{
@@ -75,23 +103,32 @@
   border-radius: 100%;
   position: absolute;
   bottom: 6%;
+  color:yellow;
+  background-image: linear-gradient(to top right, orange, rgb(246, 178, 50), orange);
+  box-shadow: 4px 4px 40px rgb(255, 217, 0);
   left: 8%;
-  animation: point  7s forwards;
-  animation-iteration-count: 1;
   transform: rotate(-15deg); /* Rotaciona o elemento em -45 graus */
   transform-origin: bottom left; 
+}
+
+.point-animation{
+  animation: point  7s forwards, reflect 4s infinite ease-in;
+}
+
+@keyframes reflect {
+  20%{background-image: linear-gradient(to top right, rgb(247, 189, 83), rgb(254, 166, 2), orange);}
+  40%{background-image: linear-gradient(to top right, rgb(243, 158, 2), rgb(254, 166, 2), rgb(245, 192, 94));}
+  60%{background-image: linear-gradient(to top right, rgb(243, 158, 2), rgb(254, 166, 2), rgb(245, 192, 94));}
+  80%{background-image: linear-gradient(to top right, rgb(247, 193, 92), rgb(254, 166, 2), rgb(243, 158, 1));}
+  100%{background-image: linear-gradient(to top right, rgb(243, 158, 2), rgb(254, 166, 2), rgb(245, 192, 94));}
 }
 
 @keyframes point {
   100%{left: 78%; bottom: 68%;}
 }
 
-@keyframes arrow {
-  100%{width: 96%;}
-}
-
 .Stripes{
-  background-image: linear-gradient(to bottom, rgba(57, 245, 0, 0.376), rgba(30, 255, 0, 0.456) 12.5%, transparent 12.5%, transparent 12.5%);
+  background-image: linear-gradient(to bottom, rgba(163, 245, 0, 0.137), rgba(30, 255, 0, 0) 12.5%, transparent 12.5%, transparent 12.5%);
   position: absolute;
   width: 3%;
   height: 150%;
@@ -104,7 +141,7 @@
 }
 
 .Stripes-no-animated{
-  background-image: linear-gradient(to bottom, rgba(57, 245, 0, 0.376), rgba(30, 255, 0, 0.456) 12.5%, transparent 12.5%, transparent 12.5%);
+  background-image: linear-gradient(to bottom, rgba(57, 245, 0, 0.151), rgba(30, 255, 0, 0) 12.5%, transparent 12.5%, transparent 12.5%);
   position: absolute;
   width: 12px;
   height: 150%;
@@ -116,7 +153,7 @@
 }
 
 .Stripes-bottom{
-  background-image: linear-gradient(to bottom, rgba(57, 245, 0, 0.376), rgba(30, 255, 0, 0.456) 12.5%, transparent 12.5%, transparent 12.5%);
+  background-image: linear-gradient(to bottom, rgba(57, 245, 0, 0.139), rgba(30, 255, 0, 0) 12.5%, transparent 12.5%, transparent 12.5%);
   position: absolute;
   width: 3%;
   height: 150%;
@@ -130,7 +167,7 @@
 }
 
 .Stripes-bottom-no-animated{
-  background-image: linear-gradient(to bottom, rgba(57, 245, 0, 0.376), rgba(30, 255, 0, 0.456) 12.5%, transparent 12.5%, transparent 12.5%);
+  background-image: linear-gradient(to bottom, rgba(123, 245, 0, 0.14), rgba(30, 255, 0, 0) 12.5%, transparent 12.5%, transparent 12.5%);
   position: absolute;
   width: 12px;
   height: 150%;
@@ -150,7 +187,7 @@
 
 .MARKERI{
   background-color: green;
-  width: 1.2%;
+  width: 0.6%;
   height: 8%;
   position: absolute;
   bottom: 0%;
@@ -175,8 +212,8 @@
 
 .MARKERIY{
   background-color: green;
-  width: 8%;
-  height: 1.2%;
+  width: 6%;
+  height: 0.8%;
   position: absolute;
   top: 49%;
   left: 0%;
