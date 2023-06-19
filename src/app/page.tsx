@@ -60,7 +60,7 @@ export default function Home() {
   useEffect(() => {
     if (count === 3) {
       setVelocity(2000)
-      setVelocity2(19)
+      setVelocity2(20)
     }
     if (count === 10) {
       setVelocity(1000)
@@ -72,7 +72,9 @@ export default function Home() {
     <div className="w-full h-screen gap-4 flex flex-col items-center justify-center">
       <div className="Container">
         <div className={`${isAnimation && 'PATAMAR'} cont2 text-transparent`}>
-          <span className="floor">{isAnimation ? count : ''}</span>
+          <span className="floor">
+            {count === 4 ? '3' : isAnimation ? count : ''}
+          </span>
         </div>
 
         {count > 3 && count <= 9 && (
@@ -95,11 +97,19 @@ export default function Home() {
 
         <div className={`${isAnimation ? 'PATAMARONE' : 'PATAMARZERO'}`} />
 
-        <span
-          className={`absolute left-[30%] top-1/2 -translate-x-1/2 -translate-y-1/2 p-2 bg-zinc-600 z-50 rounded-lg text-xl text-white font-bold min-w-[14%] text-center `}
-        >
-          {counter + ' X'}
-        </span>
+        {counter > 10 ? (
+          <span
+            className={`absolute left-[30%] top-1/2 -translate-x-1/2 -translate-y-1/2 p-2 bg-zinc-600 z-50 rounded-lg text-xl text-white font-bold min-w-[20%] text-center `}
+          >
+            {counter + ' X'}
+          </span>
+        ) : (
+          <span
+            className={`absolute left-[30%] top-1/2 -translate-x-1/2 -translate-y-1/2 p-2 bg-zinc-600 z-50 rounded-lg text-xl text-white font-bold min-w-[14%] text-center `}
+          >
+            {counter + ' X'}
+          </span>
+        )}
 
         <BsCoin className={`${isAnimation && 'point-animation'} point`} />
       </div>
