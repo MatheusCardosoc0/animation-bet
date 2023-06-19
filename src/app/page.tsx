@@ -7,20 +7,20 @@ export default function Home() {
   const [isAnimation, setIsAnimation] = useState(false)
   const [count, setCount] = useState(0)
   const [counter, setCounter] = useState(0.0)
-  const [velocity, setVelocity] = useState(3000)
-  const [velocity2, setVelocity2] = useState(30)
+  const [velocity, setVelocity] = useState(2000)
+  const [velocity2, setVelocity2] = useState(20)
 
   function newGame() {
     setIsAnimation(!isAnimation)
     setCount(0)
     setCounter(0)
-    setVelocity(3000)
-    setVelocity2(34)
+    setVelocity(2000)
+    setVelocity2(20)
   }
 
   useEffect(() => {
     if (isAnimation) {
-      setCount(Number(counter.toFixed(0)))
+      setCount(Number(Math.floor(counter)))
     }
   }, [isAnimation, velocity, counter])
 
@@ -54,26 +54,16 @@ export default function Home() {
   }, [isAnimation, velocity2])
 
   useEffect(() => {
-    if (count === 3) {
-      setVelocity(2000)
-      setVelocity2(20)
-    }
-    if (count === 10) {
+    if (counter === 9) {
       setVelocity(1000)
       setVelocity2(10)
     }
-  }, [count])
+  }, [counter])
 
   return (
     <div className="w-full h-screen gap-4 flex flex-col items-center justify-center">
       <div className="Container">
-        <div className={`${isAnimation && 'PATAMAR'} cont2 text-transparent`}>
-          <span className="floor">
-            {count === 4 ? '3' : isAnimation ? Math.floor(counter) : ''}
-          </span>
-        </div>
-
-        {count > 3 && count <= 9 && (
+        {counter < 9 && (
           <div
             className={`${isAnimation && 'PATAMAR2'} cont2 text-transparent`}
           >
@@ -81,7 +71,7 @@ export default function Home() {
           </div>
         )}
 
-        {count > 9 && (
+        {counter > 9 && (
           <div
             className={`${isAnimation && 'PATAMAR3'} cont2 text-transparent`}
           >
