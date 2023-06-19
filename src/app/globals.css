@@ -61,11 +61,11 @@
 .PATAMAR span{
   position: absolute;
   transform: translateY(-20px) translateX(-4px);
-  font-size: 2rem;
+  font-size: 1.4rem;
   background-image: linear-gradient(to top right , rgb(255, 196, 0), rgb(252, 233, 138) , yellow);
   border-radius: 100%;
-  padding-inline: 8px;
-  padding-inline: 8px;
+  padding-inline: 4px;
+  padding-inline: 4px;
   border: solid 2px rgb(253, 188, 7);
   color: aliceblue;
   text-shadow: 2px 2px 2px black;
@@ -232,5 +232,11 @@
   }
   100%{
     top: 50%;
+  }
+}
+
+@media (min-width: 720px) {
+  .PATAMAR span{
+    font-size: 2rem;
   }
 }
