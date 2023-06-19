@@ -7,28 +7,32 @@ export default function Home() {
   const [isAnimation, setIsAnimation] = useState(false)
   const [count, setCount] = useState(0)
   const [counter, setCounter] = useState(0.0)
+  const [velocity, setVelocity] = useState(3000)
+  const [velocity2, setVelocity2] = useState(30)
 
   function newGame() {
     setIsAnimation(!isAnimation)
     setCount(0)
     setCounter(0)
+    setVelocity(3000)
+    setVelocity2(34)
   }
 
   useEffect(() => {
     if (isAnimation) {
       const interval = setInterval(() => {
         setCount((prevCount) => prevCount + 1)
-      }, 3000)
+      }, velocity)
 
       return () => clearInterval(interval)
     }
-  }, [isAnimation])
+  }, [isAnimation, velocity])
 
   useEffect(() => {
     let interval: any
 
     if (isAnimation) {
-      const startValue = 0.0
+      const startValue = counter
       // eslint-disable-next-line no-loss-of-precision
       const endValue = 100000000000000000000000000000000000000000.0
       const duration = 10000000000000000000000000000000000000000000 // 7.4 segundos
@@ -44,39 +48,55 @@ export default function Home() {
           clearInterval(interval)
         }
 
-        setCounter(currentCount.toFixed(2))
-      }, 30)
+        setCounter(Number(currentCount.toFixed(2)))
+      }, velocity2)
     }
 
     return () => {
       clearInterval(interval)
     }
-  }, [isAnimation])
+  }, [isAnimation, velocity2])
+
+  useEffect(() => {
+    if (count === 3) {
+      setVelocity(2000)
+      setVelocity2(19)
+    }
+    if (count === 10) {
+      setVelocity(1000)
+      setVelocity2(10)
+    }
+  }, [count])
 
   return (
     <div className="w-full h-screen gap-4 flex flex-col items-center justify-center">
       <div className="Container">
-        <div className={`${isAnimation && 'PATAMAR'} text-transparent`}>
+        <div className={`${isAnimation && 'PATAMAR'} cont2 text-transparent`}>
           <span className="floor">{isAnimation ? count : ''}</span>
         </div>
+
+        {count > 3 && count <= 9 && (
+          <div
+            className={`${isAnimation && 'PATAMAR2'} cont2 text-transparent`}
+          >
+            <span className="floor">{isAnimation ? count : ''}</span>
+          </div>
+        )}
+
+        {count > 9 && (
+          <div
+            className={`${isAnimation && 'PATAMAR3'} cont2 text-transparent`}
+          >
+            <span className="floor">{isAnimation ? count : ''}</span>
+          </div>
+        )}
+
         <div className={`${isAnimation && 'ARROW-animation'} ARROW`} />
 
         <div className={`${isAnimation ? 'PATAMARONE' : 'PATAMARZERO'}`} />
 
-        <div className={`MARKERI ${isAnimation && 'MARKERI-ANIMATION'}`} />
-
-        <div className={`MARKERIY ${isAnimation && 'MARKERI-ANIMATIONY'}`} />
-
-        <div className={`${isAnimation ? 'Stripes' : 'Stripes-no-animated'}`} />
-
-        <div
-          className={`${
-            isAnimation ? 'Stripes-bottom' : 'Stripes-bottom-no-animated'
-          }`}
-        />
-
         <span
-          className={`absolute left-[30%] top-1/2 -translate-x-1/2 -translate-y-1/2 p-2 bg-zinc-600 z-50 rounded-lg text-xl text-white font-bold `}
+          className={`absolute left-[30%] top-1/2 -translate-x-1/2 -translate-y-1/2 p-2 bg-zinc-600 z-50 rounded-lg text-xl text-white font-bold min-w-[14%] text-center `}
         >
           {counter + ' X'}
         </span>
