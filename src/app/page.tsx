@@ -13,16 +13,20 @@ export default function Home() {
   function newGame() {
     setIsAnimation(!isAnimation)
     setCount(0)
-    setCounter(0)
+    setCounter(0.0)
     setVelocity(2000)
     setVelocity2(20)
   }
 
   useEffect(() => {
     if (isAnimation) {
-      setCount(Number(Math.floor(counter)))
+      const interval = setInterval(() => {
+        setCount((prevCount) => prevCount + 1)
+      }, velocity)
+
+      return () => clearInterval(interval)
     }
-  }, [isAnimation, velocity, counter])
+  }, [isAnimation, velocity])
 
   useEffect(() => {
     let interval: any
@@ -54,7 +58,7 @@ export default function Home() {
   }, [isAnimation, velocity2])
 
   useEffect(() => {
-    if (counter === 9) {
+    if (count === 9) {
       setVelocity(1000)
       setVelocity2(10)
     }
@@ -87,13 +91,17 @@ export default function Home() {
           <span
             className={`absolute left-[30%] top-1/2 -translate-x-1/2 -translate-y-1/2 p-2 bg-zinc-600 z-50 rounded-lg text-xl text-white font-bold min-w-[14%] text-center `}
           >
-            {counter.toFixed(1) + ' X'}
+            {isAnimation
+              ? count + '.' + String(counter).slice(-1) + ' X'
+              : '0.00'}
           </span>
         ) : (
           <span
             className={`absolute left-[30%] top-1/2 -translate-x-1/2 -translate-y-1/2 p-2 bg-zinc-600 z-50 rounded-lg text-xl text-white font-bold min-w-[14%] text-center `}
           >
-            {counter + ' X'}
+            {isAnimation
+              ? count + '.' + String(counter).slice(-2) + ' X'
+              : '0.00'}
           </span>
         )}
 
