@@ -64,7 +64,7 @@ export default function Home() {
     }
     if (count === 10) {
       setVelocity(1000)
-      setVelocity2(9)
+      setVelocity2(10)
     }
   }, [count])
 
