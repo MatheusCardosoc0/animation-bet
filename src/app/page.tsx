@@ -20,13 +20,9 @@ export default function Home() {
 
   useEffect(() => {
     if (isAnimation) {
-      const interval = setInterval(() => {
-        setCount((prevCount) => prevCount + 1)
-      }, velocity)
-
-      return () => clearInterval(interval)
+      setCount(Number(counter.toFixed(0)))
     }
-  }, [isAnimation, velocity])
+  }, [isAnimation, velocity, counter])
 
   useEffect(() => {
     let interval: any
@@ -73,7 +69,7 @@ export default function Home() {
       <div className="Container">
         <div className={`${isAnimation && 'PATAMAR'} cont2 text-transparent`}>
           <span className="floor">
-            {count === 4 ? '3' : isAnimation ? count : ''}
+            {count === 4 ? '3' : isAnimation ? Math.floor(counter) : ''}
           </span>
         </div>
 
