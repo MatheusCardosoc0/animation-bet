@@ -64,7 +64,7 @@ export default function Home() {
     }
     if (count === 10) {
       setVelocity(1000)
-      setVelocity2(10)
+      setVelocity2(9)
     }
   }, [count])
 
@@ -99,9 +99,9 @@ export default function Home() {
 
         {counter > 10 ? (
           <span
-            className={`absolute left-[30%] top-1/2 -translate-x-1/2 -translate-y-1/2 p-2 bg-zinc-600 z-50 rounded-lg text-xl text-white font-bold min-w-[28%] text-center `}
+            className={`absolute left-[30%] top-1/2 -translate-x-1/2 -translate-y-1/2 p-2 bg-zinc-600 z-50 rounded-lg text-xl text-white font-bold min-w-[14%] text-center `}
           >
-            {counter + ' X'}
+            {counter.toFixed(1) + ' X'}
           </span>
         ) : (
           <span
