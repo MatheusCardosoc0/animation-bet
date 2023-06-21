@@ -64,7 +64,7 @@
   transform: translateX(-50%) ;
   background-color: rgb(255, 200, 0);
   box-shadow: 0px 2px 0px rgb(81, 81, 80);
-  animation: patamar infinite 2s ease-in;
+  animation: patamar infinite 1.7s ease-in;
   color: rgb(41, 41, 41);
 }
 
@@ -78,7 +78,7 @@
     transform: translateX(-50%) ;
     background-color: rgb(255, 200, 0);
     box-shadow: 0px 2px 0px rgb(81, 81, 80);
-    animation: patamar infinite 1s ease-in;
+    animation: patamar infinite 0.7s ease-in;
     color: rgb(41, 41, 41);
   
 }
@@ -113,7 +113,7 @@
 }
 
 .ARROW-animation{
-  animation: arrow  5s forwards, trail 2s infinite;
+  animation: arrow  3.2s forwards, trail 0.1s infinite;
 }
 
 @keyframes arrow {
@@ -141,7 +141,7 @@
 }
 
 .point-animation{
-  animation: point  5s forwards, reflect 4s infinite ease-in;
+  animation: point  3.2s forwards, reflect 1s infinite ease-in;
 }
 
 @keyframes reflect {
