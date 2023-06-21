@@ -9,12 +9,10 @@ export default function Home() {
   const [counter, setCounter] = useState(0.0)
   const [velocity, setVelocity] = useState(1700)
   const [velocity2, setVelocity2] = useState(20)
-  const [countrix, setCountrix] = useState(0)
 
   function newGame() {
     setIsAnimation(!isAnimation)
     setCount(0)
-    setCountrix(0)
     setCounter(0.0)
     setVelocity(1700)
     setVelocity2(17)
