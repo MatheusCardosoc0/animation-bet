@@ -93,7 +93,7 @@ export default function Home() {
 
         {counter > 10 ? (
           <span
-            className={`absolute left-[30%] top-1/2 -translate-x-1/2 -translate-y-1/2 p-2 bg-zinc-600 z-50 rounded-lg text-xl text-white font-bold min-w-[20%] text-center `}
+            className={`absolute left-[30%] top-1/2 -translate-x-1/2 -translate-y-1/2 p-2 bg-zinc-600 z-50 rounded-lg text-xl text-white font-bold min-w-[32%] text-center `}
           >
             {isAnimation
               ? count + '.' + String(counter).slice(-1) + ' X'

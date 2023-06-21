@@ -113,7 +113,7 @@
 }
 
 .ARROW-animation{
-  animation: arrow  3.2s forwards, trail 0.1s infinite;
+  animation: arrow  2.5s forwards, trail 0.1s infinite;
 }
 
 @keyframes arrow {
@@ -141,7 +141,7 @@
 }
 
 .point-animation{
-  animation: point  3.2s forwards, reflect 1s infinite ease-in;
+  animation: point  2.5s forwards, reflect 1s infinite ease-in;
 }
 
 @keyframes reflect {
