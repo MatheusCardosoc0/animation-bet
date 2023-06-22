@@ -1,5 +1,6 @@
 'use client'
 
+import clsx from 'clsx'
 import { useEffect, useState } from 'react'
 import { BsCoin } from 'react-icons/bs'
 
@@ -85,7 +86,7 @@ export default function Home() {
           </div>
         )}
 
-        {count > 30 ? (
+        {count > 10 ? (
           <>
             <div className={`${isAnimation && 'ARROW-animation2'} ARROW2`} />
 
@@ -103,7 +104,11 @@ export default function Home() {
 
         {counter > 10 ? (
           <span
-            className={`absolute left-[30%] top-1/2 -translate-x-1/2 -translate-y-1/2 p-2 bg-zinc-600 z-50 rounded-lg text-xl text-white font-bold min-w-[32%] text-center `}
+            className={clsx(
+              `absolute left-[30%] top-1/2 -translate-x-1/2 -translate-y-1/2 p-2  z-50 rounded-lg min-w-[30%] md:min-w-[20%] text-center `,
+              count > 9 &&
+                'bg-gradient-to-tr from-yellow-600 to-orange-600 text-white text-xl font-black drop-shadow-[0px_0px_8px_#ffffff] text-shadow',
+            )}
           >
             {isAnimation
               ? count + '.' + String(counter).slice(-1) + ' X'
@@ -111,7 +116,7 @@ export default function Home() {
           </span>
         ) : (
           <span
-            className={`absolute left-[30%] top-1/2 -translate-x-1/2 -translate-y-1/2 p-2 bg-zinc-600 z-50 rounded-lg text-xl text-white font-bold min-w-[14%] text-center `}
+            className={`absolute left-[30%] top-1/2 -translate-x-1/2 -translate-y-1/2 p-2  z-50 rounded-lg text-xl  font-bold min-w-[14%] text-center bg-zinc-600 text-white`}
           >
             {isAnimation
               ? count + '.' + String(counter).slice(-2) + ' X'
