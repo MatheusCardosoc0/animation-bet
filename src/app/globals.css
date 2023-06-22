@@ -136,24 +136,23 @@
   background-image: linear-gradient(to top right, orange, rgb(246, 178, 50), orange);
   box-shadow: 4px 4px 40px rgb(255, 217, 0);
   left: 8%;
-  transform: rotate(-15deg); /* Rotaciona o elemento em -45 graus */
-  transform-origin: bottom left; 
 }
 
 .point-animation{
-  animation: point  2.5s forwards, reflect 1s infinite ease-in;
+  animation: point  2.5s forwards, reflect 1s infinite linear;
 }
 
 @keyframes reflect {
+  0%{transform: rotate(0);}
   20%{background-image: linear-gradient(to top right, rgb(247, 189, 83), rgb(254, 166, 2), orange);}
   40%{background-image: linear-gradient(to top right, rgb(243, 158, 2), rgb(254, 166, 2), rgb(245, 192, 94));}
   60%{background-image: linear-gradient(to top right, rgb(243, 158, 2), rgb(254, 166, 2), rgb(245, 192, 94));}
   80%{background-image: linear-gradient(to top right, rgb(247, 193, 92), rgb(254, 166, 2), rgb(243, 158, 1));}
-  100%{background-image: linear-gradient(to top right, rgb(243, 158, 2), rgb(254, 166, 2), rgb(245, 192, 94));}
+  100%{background-image: linear-gradient(to top right, rgb(243, 158, 2), rgb(254, 166, 2), rgb(245, 192, 94)); transform: rotate(360deg); }
 }
 
 @keyframes point {
-  100%{left: 82%; bottom: 74%;}
+  100%{left: 79%; bottom: 75%;}
 }
 
 .Stripes{
@@ -268,4 +267,37 @@
   .cont2 span{
     font-size: 2rem;
   }
+}
+
+
+.ARROW2{
+  position: absolute;
+  width: 90%;
+  height: 8%;
+  background-image: linear-gradient(to left, rgb(251, 255, 0), rgb(72, 181, 5), rgba(31, 92, 2, 0.464), rgba(17, 51, 1, 0) );
+  bottom: 6%;
+  left: 8%;
+  border-radius: 4px;
+  transform: rotate(-35deg); /* Rotaciona o elemento em -45 graus */
+  transform-origin: bottom left; 
+}
+
+.ARROW-animation2{
+  animation: trail 0.1s infinite;
+}
+
+.point2{
+  width: 22%;
+  height: 30%;
+  border-radius: 100%;
+  position: absolute;
+  bottom: 62%;
+  color:yellow;
+  background-image: linear-gradient(to top right, orange, rgb(246, 178, 50), orange);
+  box-shadow: 4px 4px 40px rgb(255, 217, 0);
+  left: 66%;
+}
+
+.point-animation2{
+  animation: reflect 1s infinite linear;;
 }

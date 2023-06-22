@@ -85,7 +85,19 @@ export default function Home() {
           </div>
         )}
 
-        <div className={`${isAnimation && 'ARROW-animation'} ARROW`} />
+        {count > 30 ? (
+          <>
+            <div className={`${isAnimation && 'ARROW-animation2'} ARROW2`} />
+
+            <BsCoin className={`${isAnimation && 'point-animation2'} point2`} />
+          </>
+        ) : (
+          <>
+            <div className={`${isAnimation && 'ARROW-animation'} ARROW`} />
+
+            <BsCoin className={`${isAnimation && 'point-animation'} point`} />
+          </>
+        )}
 
         <div className={`${isAnimation ? 'PATAMARONE' : 'PATAMARZERO'}`} />
 
@@ -106,8 +118,6 @@ export default function Home() {
               : '0.00'}
           </span>
         )}
-
-        <BsCoin className={`${isAnimation && 'point-animation'} point`} />
       </div>
 
       <button
