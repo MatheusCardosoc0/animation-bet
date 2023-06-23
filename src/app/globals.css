@@ -64,8 +64,13 @@
   transform: translateX(-50%) ;
   background-color: rgb(255, 200, 0);
   box-shadow: 0px 2px 0px rgb(81, 81, 80);
-  animation: patamar infinite 1.7s ease-in;
+  animation: patamar2 infinite 1.5s ease-in;
   color: rgb(41, 41, 41);
+}
+
+@keyframes patamar2{
+  5%{top: 10%;}
+  100%{top: 100%}
 }
 
 .PATAMAR3{
@@ -78,7 +83,7 @@
     transform: translateX(-50%) ;
     background-color: rgb(255, 200, 0);
     box-shadow: 0px 2px 0px rgb(81, 81, 80);
-    animation: patamar infinite 0.7s ease-in;
+    animation: patamar infinite 0.5s ease-in;
     color: rgb(41, 41, 41);
   
 }
@@ -117,7 +122,7 @@
 }
 
 @keyframes arrow {
-  100%{width: 100%;}
+  100%{width: 90%;}
 }
 
 @keyframes trail {
@@ -152,7 +157,7 @@
 }
 
 @keyframes point {
-  100%{left: 79%; bottom: 75%;}
+  100%{left: 74%; bottom: 70%;}
 }
 
 .Stripes{
@@ -291,11 +296,11 @@
   height: 30%;
   border-radius: 100%;
   position: absolute;
-  bottom: 66%;
+  bottom: 62%;
   color:yellow;
   background-image: linear-gradient(to top right, orange, rgb(246, 178, 50), orange);
   box-shadow: 4px 4px 40px rgb(255, 217, 0);
-  left: 70%;
+  left: 66%;
   transition: all;
   transition-duration: 0.3s;
 }
@@ -306,7 +311,7 @@
 
 @keyframes point2 {
   0%{left: 74%; bottom: 70%;}
-  100%{left: 70%; bottom: 66%;}
+  100%{left: 66%; bottom: 62%;}
 }
 
 @keyframes arrow2 {

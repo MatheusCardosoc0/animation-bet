@@ -9,14 +9,16 @@ export default function Home() {
   const [count, setCount] = useState(0)
   const [counter, setCounter] = useState(0.0)
   const [velocity, setVelocity] = useState(1700)
-  const [velocity2, setVelocity2] = useState(20)
+  const [velocity2, setVelocity2] = useState(17)
+  const [count2, setCount2] = useState(0)
 
   function newGame() {
     setIsAnimation(!isAnimation)
     setCount(0)
+    setCount2(0)
     setCounter(0.0)
-    setVelocity(1700)
-    setVelocity2(17)
+    setVelocity(1500)
+    setVelocity2(15)
   }
 
   useEffect(() => {
@@ -25,8 +27,13 @@ export default function Home() {
         setCount((prevCount) => prevCount + 1)
       }, velocity)
 
+      const interval2 = setInterval(() => {
+        setCount2((prevCount) => prevCount + 1)
+      }, velocity)
+
       return () => {
         clearInterval(interval)
+        clearInterval(interval2)
       }
     }
   }, [isAnimation, velocity])
@@ -62,7 +69,7 @@ export default function Home() {
 
   useEffect(() => {
     if (count === 9) {
-      setVelocity(700)
+      setVelocity(500)
       setVelocity2(7)
     }
   }, [counter])
@@ -102,27 +109,20 @@ export default function Home() {
 
         <div className={`${isAnimation ? 'PATAMARONE' : 'PATAMARZERO'}`} />
 
-        {counter > 10 ? (
-          <span
-            className={clsx(
-              `absolute left-[30%] top-1/2 -translate-x-1/2 -translate-y-1/2 p-2  z-50 rounded-lg min-w-[30%] md:min-w-[20%] text-center `,
-              count > 9 &&
-                'bg-gradient-to-tr from-yellow-600 to-orange-600 text-white text-xl font-black drop-shadow-[0px_0px_8px_#ffffff] text-shadow',
-            )}
-          >
-            {isAnimation
-              ? count + '.' + String(counter).slice(-1) + ' X'
-              : '0.00'}
-          </span>
-        ) : (
-          <span
-            className={`absolute left-[30%] top-1/2 -translate-x-1/2 -translate-y-1/2 p-2  z-50 rounded-lg text-xl  font-bold min-w-[14%] text-center bg-zinc-600 text-white`}
-          >
-            {isAnimation
-              ? count + '.' + String(counter).slice(-2) + ' X'
-              : '0.00'}
-          </span>
-        )}
+        <span
+          className={clsx(
+            `absolute left-[30%] top-1/2 -translate-x-1/2 -translate-y-1/2 p-2  z-50 rounded-lg text-center `,
+            count >= 9 &&
+              'bg-gradient-to-tr from-yellow-600 to-orange-600 text-white text-xl font-black drop-shadow-[0px_0px_8px_#ffffff] text-shadow min-w-[30%] md:min-w-[20%] ',
+            count < 9 && 'bg-zinc-600 text-white font-bold min-w-[18%] text-xl',
+          )}
+        >
+          {!isAnimation
+            ? '0.00'
+            : count > 9
+            ? count + '.' + String(counter).slice(-1) + ' X'
+            : count2 + '.' + String(counter).slice(-2) + ' X'}
+        </span>
       </div>
 
       <button
